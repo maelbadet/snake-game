@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://kit.fontawesome.com/b1a1930ce8.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="stylesheet" href="assets/css/modal.css">
+    <link rel="stylesheet" href="assets/css/score.css">
+    <script type="module" src="assets/js/index.js" defer></script>
+    <title>Le Gardien du Destin Scientifique</title>
+</head>
+<body>
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <div class="page" id="page1">
+            <span class="close">&times;</span>
+            <h2>Le Gardien du Destin Scientifique</h2>
+            <p>Dans une réalité alternative, Isaac Newton n'était pas seulement un génie des mathématiques et de la physique, mais aussi le gardien d'un précieux secret : une pomme, une simple pomme qui, une fois tombée sur sa tête, a déclenché une série d'idées qui ont révolutionné notre compréhension du monde.</p>
+
+            <p>Cependant, une menace inattendue s'est présentée. Une mystérieuse perturbation temporelle a agité le continuum espace-temps, menaçant de modifier le cours de l'histoire. Dans ce monde en péril, un serpent est devenu le gardien de l'équilibre du savoir, un protecteur des fondements de la science.</p>
+
+            <p>Ce serpent, connu sous le nom de "Vengeur de Newton", avait une mission vitale : empêcher qu'une pomme ne tombe sur la tête d'Isaac Newton. Pourquoi ? Parce que si Newton était distrait par cette chute accidentelle, il n'aurait pas pu formuler ses lois du mouvement et de la gravitation universelle. Le destin de la science en aurait été bouleversé, les découvertes fondamentales retardées, et l'humanité aurait été privée de décennies, voire de siècles, de progrès scientifique.</p>
+
+            <p>Dans cette course contre la montre, le serpent navigue habilement à travers un labyrinthe, se faufilant entre les pommes suspendues, protégeant ainsi l'avenir de la connaissance humaine. À chaque instant, il doit rester vigilant, évitant les obstacles et préservant la continuité du savoir.</p>
+
+            <p>Ainsi, alors que le serpent se glisse dans son périple, les joueurs deviennent les gardiens de cette vérité historique, luttant pour maintenir l'intégrité du fil du temps et assurer que l'histoire de la science demeure inchangée.</p>
+            <button id="nextBtn1">Suivant</button>
+        </div>
+
+        <div class="page" id="page2" style="display: none;">
+            <h2>Touches de Contrôle</h2>
+            <p>Les touches sont : </p>
+            <p>Aller en haut : <i class="fa-solid fa-up-long"></i> ou <i class="fa-solid fa-w"></i></p>
+            <p>Aller à gauche : <i class="fa-solid fa-left-long"></i> ou <i class="fa-solid fa-a"></i></p>
+            <p>Aller en bas : <i class="fa-solid fa-down-long"></i> ou <i class="fa-solid fa-s"></i></p>
+            <p>Aller à droite : <i class="fa-solid fa-right-long"></i> ou <i class="fa-solid fa-d"></i></p>
+            <button id="prevBtn2">Précédent</button>
+            <button id="nextBtn2">Suivant</button>
+        </div>
+        <div class="page" id="page3" style="display: none;">
+            <h2>musique</h2>
+            <p>Ce jeu utilise la musique de <strong>Sonic the HedgeHog</strong> sortie sur sega (une des meilleurs musique de jeux video a mon gout).</p>
+            <h2>Tableau des Scores</h2>
+            <p>Attention à ne <strong>pas</strong> manger sa queue, sinon la partie sera terminée.</p>
+            <p>Les 20 meilleurs joueurs de votre session sont notés ci-dessus.</p>
+            <p>Si vous arrivez dans le top 20, vous pourrez avoir une place dans ce tableau d'élite.</p>
+            <p>À vos vengeurs et ne laissez pas Isaac se manger une pomme sur la tête pour changer le futur de la science.</p>
+            <button id="prevBtn3">Précédent</button>
+            <button id="restartBtn">Jouer</button>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="scoreboard">
+        <h1>Le Gardien du Destin Scientifique</h1>
+        <p id="score">Score: 0</p>
+        <p id="highscore">Meilleur Score: 0</p>
+        <button id="replayButton" style="display:none;">Rejouer</button>
+    </div>
+    <canvas id="gameCanvas" width="400" height="400"></canvas>
+    <div id="topScores">
+        <h2>Top Scores</h2>
+        <ol id="scoreList"></ol>
+    </div>
+    <div id="nameForm" style="display:none;">
+        <input type="text" id="playerName" placeholder="Votre pseudo (6-20 caractères)">
+        <button id="submitName">Enregistrer</button>
+    </div>
+</div>
+
+</body>
+</html>
