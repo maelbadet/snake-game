@@ -1,39 +1,43 @@
 export class ScoreManager {
+    constructor() {
+        this.highScoreKey = 'snake.highscore';
+        this.scoresKey = 'snake.scores';
+        this.maxScores = 10;
+    }
+
     getHighScore() {
-        return localStorage.getItem('highscore') || 0;
+        return Number(localStorage.getItem(this.highScoreKey) || 0);
     }
 
     setHighScore(score) {
-        localStorage.setItem('highscore', score);
-    }
-
-    saveScore(name, score) {
-        let scores = this.getHighScores();
-        scores.push({ name, score });
-        scores.sort((a, b) => b.score - a.score);
-        scores = scores.slice(0, 20);
-        localStorage.setItem('scores', JSON.stringify(scores));
+        localStorage.setItem(this.highScoreKey, String(score));
     }
 
     getHighScores() {
-        return JSON.parse(localStorage.getItem('scores') || '[]');
+        return JSON.parse(localStorage.getItem(this.scoresKey) || '[]');
     }
 
-    fetchHighScoresFromAPI(callback) {
-        fetch("https://randomuser.me/api/?nat=fr&results=30")
-            .then(response => response.json())
-            .then(data => {
-                const scores = [];
-                data.results.forEach(user => {
-                    const name = `${user.name.first} ${user.name.last}`;
-                    const score = Math.floor(Math.random() * 22 + 20) * 10;
-                    scores.push({ name, score });
-                });
-                scores.sort((a, b) => b.score - a.score);
-                scores.splice(20);
-                localStorage.setItem('scores', JSON.stringify(scores));
-                callback();
-            })
-            .catch(error => console.error('Erreur lors de la récupération des scores :', error));
+    saveScore(name, score) {
+        const normalizedName = name.trim().slice(0, 16);
+        if (!normalizedName) {
+            return;
+        }
+
+        const scores = this.getHighScores();
+        scores.push({
+            name: normalizedName,
+            score,
+            createdAt: new Date().toISOString()
+        });
+
+        scores.sort((a, b) => b.score - a.score || a.createdAt.localeCompare(b.createdAt));
+        const topScores = scores.slice(0, this.maxScores);
+
+        localStorage.setItem(this.scoresKey, JSON.stringify(topScores));
+    }
+
+    qualifies(score) {
+        const scores = this.getHighScores();
+        return scores.length < this.maxScores || score > scores[scores.length - 1].score;
     }
 }

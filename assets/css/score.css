@@ -1,84 +1,59 @@
-/*=========================*/
-/*mise en place des scores */
-/*=========================*/
-#topScores {
-    position: fixed;
-    top: 0px;
-    right: 100px;
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    width: 300px;
-}
-
-#topScores h2 {
-    text-align: center;
-    margin-bottom: 10px;
-    font-size: 24px;
-    border-bottom: 2px solid #444;
-}
-
-#scoreList {
-    list-style: decimal;
-    padding-left: 20px;
+.score-list {
+    margin: 18px 0 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .score-item {
-    padding: 10px;
-    margin: 5px 0;
-    border-radius: 5px;
-    transition: transform 0.3s ease-in-out;
-}
-
-.score-item:nth-child(even) {
-    background-color: darkred;
-    opacity: 0.7;
-}
-
-.score-item:nth-child(odd) {
-    background-color: darkgreen;
-    opacity: 0.7;
+    display: grid;
+    grid-template-columns: 40px 1fr auto;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
 }
 
 .score-item:hover {
-    transform: scale(1.05);
+    transform: translateX(4px);
+    border-color: rgba(125, 249, 198, 0.28);
+    background: rgba(125, 249, 198, 0.07);
 }
 
-#nameForm {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    width: 300px;
+.score-rank {
+    width: 36px;
+    height: 36px;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+    font-weight: 700;
+    color: #05101d;
+    background: linear-gradient(135deg, #ffd166, #ffe5a4);
 }
 
-#nameForm input, #nameForm button {
-    padding: 10px;
-    margin: 5px;
-    border-radius: 5px;
-    border: none;
-    font-size: 16px;
+.score-name {
+    color: #edf4ff;
+    font-weight: 700;
 }
 
-#nameForm input {
-    width: 80%;
+.score-points {
+    color: #7df9c6;
+    font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+    font-weight: 700;
 }
 
-#nameForm button {
-    width: 50%;
-    background-color: darkgreen;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
-}
-
-#nameForm button:hover {
-    background-color: darkred;
+.score-empty {
+    margin-top: 18px;
+    padding: 18px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px dashed rgba(255, 255, 255, 0.08);
+    color: #9fb2d4;
+    text-align: center;
 }

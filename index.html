@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://kit.fontawesome.com/b1a1930ce8.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="assets/css/index.css">
     <link rel="stylesheet" href="assets/css/modal.css">
     <link rel="stylesheet" href="assets/css/score.css">
@@ -12,65 +11,153 @@
     <title>Le Gardien du Destin Scientifique</title>
 </head>
 <body>
-<div id="myModal" class="modal">
-    <div class="modal-content">
-        <div class="page" id="page1">
-            <span class="close">&times;</span>
-            <h2>Le Gardien du Destin Scientifique</h2>
-            <p>Dans une réalité alternative, Isaac Newton n'était pas seulement un génie des mathématiques et de la physique, mais aussi le gardien d'un précieux secret : une pomme, une simple pomme qui, une fois tombée sur sa tête, a déclenché une série d'idées qui ont révolutionné notre compréhension du monde.</p>
-
-            <p>Cependant, une menace inattendue s'est présentée. Une mystérieuse perturbation temporelle a agité le continuum espace-temps, menaçant de modifier le cours de l'histoire. Dans ce monde en péril, un serpent est devenu le gardien de l'équilibre du savoir, un protecteur des fondements de la science.</p>
-
-            <p>Ce serpent, connu sous le nom de "Vengeur de Newton", avait une mission vitale : empêcher qu'une pomme ne tombe sur la tête d'Isaac Newton. Pourquoi ? Parce que si Newton était distrait par cette chute accidentelle, il n'aurait pas pu formuler ses lois du mouvement et de la gravitation universelle. Le destin de la science en aurait été bouleversé, les découvertes fondamentales retardées, et l'humanité aurait été privée de décennies, voire de siècles, de progrès scientifique.</p>
-
-            <p>Dans cette course contre la montre, le serpent navigue habilement à travers un labyrinthe, se faufilant entre les pommes suspendues, protégeant ainsi l'avenir de la connaissance humaine. À chaque instant, il doit rester vigilant, évitant les obstacles et préservant la continuité du savoir.</p>
-
-            <p>Ainsi, alors que le serpent se glisse dans son périple, les joueurs deviennent les gardiens de cette vérité historique, luttant pour maintenir l'intégrité du fil du temps et assurer que l'histoire de la science demeure inchangée.</p>
-            <button id="nextBtn1">Suivant</button>
+<div class="app-shell">
+    <aside class="panel panel-story">
+        <div class="panel-card story-card">
+            <p class="eyebrow">Newton Timeline Defense</p>
+            <h1>Le Gardien du Destin Scientifique</h1>
+            <p class="lede">
+                Une pomme menace l'histoire. Guide le serpent, protège Isaac Newton et empêche une catastrophe
+                temporelle.
+            </p>
+            <div class="story-highlight">
+                <span class="highlight-value" id="statusText">Prêt</span>
+                <span class="highlight-label">État de la partie</span>
+            </div>
+            <div class="mini-grid">
+                <div class="mini-card">
+                    <span class="mini-value" id="liveScore">0</span>
+                    <span class="mini-label">Score</span>
+                </div>
+                <div class="mini-card">
+                    <span class="mini-value" id="liveBest">0</span>
+                    <span class="mini-label">Record local</span>
+                </div>
+                <div class="mini-card">
+                    <span class="mini-value" id="liveLength">3</span>
+                    <span class="mini-label">Longueur</span>
+                </div>
+                <div class="mini-card">
+                    <span class="mini-value" id="liveSpeed">1</span>
+                    <span class="mini-label">Niveau</span>
+                </div>
+            </div>
+            <div class="story-actions">
+                <button id="openIntro" class="button button-secondary" type="button">Voir le briefing</button>
+                <button id="toggleMusic" class="button button-ghost" type="button">Musique: off</button>
+            </div>
         </div>
 
-        <div class="page" id="page2" style="display: none;">
-            <h2>Touches de Contrôle</h2>
-            <p>Les touches sont : </p>
-            <p>Aller en haut : <i class="fa-solid fa-up-long"></i> ou <i class="fa-solid fa-w"></i></p>
-            <p>Aller à gauche : <i class="fa-solid fa-left-long"></i> ou <i class="fa-solid fa-a"></i></p>
-            <p>Aller en bas : <i class="fa-solid fa-down-long"></i> ou <i class="fa-solid fa-s"></i></p>
-            <p>Aller à droite : <i class="fa-solid fa-right-long"></i> ou <i class="fa-solid fa-d"></i></p>
-            <button id="prevBtn2">Précédent</button>
-            <button id="nextBtn2">Suivant</button>
+        <div class="panel-card controls-card">
+            <div class="section-title">
+                <span></span>
+                <h2>Commandes</h2>
+            </div>
+            <p>Clavier: `ZQSD`, `WASD` ou flèches. `Espace` pour pause/reprise.</p>
+            <div class="control-pills">
+                <span>Wrap sur les bords</span>
+                <span>Leaderboard local</span>
+                <span>Animation fluide</span>
+            </div>
         </div>
-        <div class="page" id="page3" style="display: none;">
-            <h2>musique</h2>
-            <p>Ce jeu utilise la musique de <strong>Sonic the HedgeHog</strong> sortie sur sega (une des meilleurs musique de jeux video a mon gout).</p>
-            <h2>Tableau des Scores</h2>
-            <p>Attention à ne <strong>pas</strong> manger sa queue, sinon la partie sera terminée.</p>
-            <p>Les 20 meilleurs joueurs de votre session sont notés ci-dessus.</p>
-            <p>Si vous arrivez dans le top 20, vous pourrez avoir une place dans ce tableau d'élite.</p>
-            <p>À vos vengeurs et ne laissez pas Isaac se manger une pomme sur la tête pour changer le futur de la science.</p>
-            <button id="prevBtn3">Précédent</button>
-            <button id="restartBtn">Jouer</button>
+    </aside>
+
+    <main class="game-stage">
+        <div class="hud-bar">
+            <div class="hud-block">
+                <span class="hud-label">Score</span>
+                <strong id="score">0</strong>
+            </div>
+            <div class="hud-block">
+                <span class="hud-label">Meilleur score</span>
+                <strong id="highscore">0</strong>
+            </div>
+            <div class="hud-block hud-block-accent">
+                <span class="hud-label">Mission</span>
+                <strong id="missionText">Collecte la prochaine pomme</strong>
+            </div>
+        </div>
+
+        <div class="stage-actions">
+            <button id="startButton" class="button" type="button">Jouer</button>
+            <button id="pauseButton" class="button button-secondary" type="button">Pause</button>
+            <button id="replayButton" class="button button-ghost" type="button">Rejouer</button>
+        </div>
+
+        <section class="board-frame">
+            <div class="canvas-glow"></div>
+            <canvas id="gameCanvas" width="560" height="560" aria-label="Plateau du jeu Snake"></canvas>
+            <div id="gameOverlay" class="game-overlay">
+                <div class="overlay-card">
+                    <p class="overlay-kicker">Simulation temporelle</p>
+                    <h2 id="overlayTitle">Appuie sur jouer</h2>
+                    <p id="overlayMessage">
+                        Le serpent attend tes ordres. Commence la partie et garde la ligne temporelle intacte.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <div class="mobile-controls" aria-label="Contrôles tactiles">
+            <button class="control-button up" data-direction="up" type="button">↑</button>
+            <button class="control-button left" data-direction="left" type="button">←</button>
+            <button class="control-button down" data-direction="down" type="button">↓</button>
+            <button class="control-button right" data-direction="right" type="button">→</button>
+        </div>
+    </main>
+
+    <aside class="panel panel-scores">
+        <div class="panel-card leaderboard-card">
+            <div class="section-title">
+                <span></span>
+                <h2>Top local</h2>
+            </div>
+            <p class="panel-copy">Les 10 meilleurs scores de ce navigateur sont conservés en local.</p>
+            <ol id="scoreList" class="score-list"></ol>
+        </div>
+
+        <div id="nameForm" class="panel-card save-card hidden">
+            <div class="section-title">
+                <span></span>
+                <h2>Enregistrer ton score</h2>
+            </div>
+            <p class="panel-copy">Entre un pseudo entre 3 et 16 caractères pour apparaître au classement.</p>
+            <label class="sr-only" for="playerName">Pseudo</label>
+            <input type="text" id="playerName" maxlength="16" placeholder="Ton pseudo">
+            <button id="submitName" class="button" type="button">Enregistrer</button>
+        </div>
+    </aside>
+</div>
+
+<div id="introModal" class="modal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal="true"></div>
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <button id="closeIntro" class="modal-close" type="button" aria-label="Fermer">×</button>
+        <p class="eyebrow">Briefing</p>
+        <h2 id="modalTitle">Défends l'instant qui a changé la science</h2>
+        <div class="modal-columns">
+            <div>
+                <p>
+                    Dans cette version de l'histoire, une faille temporelle menace de détourner la fameuse pomme
+                    avant qu'elle ne devienne une idée.
+                </p>
+                <p>
+                    Ton rôle: contrôler le Vengeur de Newton, intercepter chaque pomme et garder la chronologie
+                    stable le plus longtemps possible.
+                </p>
+            </div>
+            <div>
+                <ul class="modal-list">
+                    <li>Chaque pomme augmente ton score et accélère légèrement la partie.</li>
+                    <li>Tu traverses les bords, mais ta propre queue reste fatale.</li>
+                    <li>Le classement reste stocké localement, sans serveur distant.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button id="dismissIntro" class="button" type="button">Compris</button>
         </div>
     </div>
 </div>
-
-
-<div class="container">
-    <div class="scoreboard">
-        <h1>Le Gardien du Destin Scientifique</h1>
-        <p id="score">Score: 0</p>
-        <p id="highscore">Meilleur Score: 0</p>
-        <button id="replayButton" style="display:none;">Rejouer</button>
-    </div>
-    <canvas id="gameCanvas" width="400" height="400"></canvas>
-    <div id="topScores">
-        <h2>Top Scores</h2>
-        <ol id="scoreList"></ol>
-    </div>
-    <div id="nameForm" style="display:none;">
-        <input type="text" id="playerName" placeholder="Votre pseudo (6-20 caractères)">
-        <button id="submitName">Enregistrer</button>
-    </div>
-</div>
-
 </body>
 </html>
